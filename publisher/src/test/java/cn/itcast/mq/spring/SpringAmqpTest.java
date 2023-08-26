@@ -30,4 +30,15 @@ public class SpringAmqpTest {
             Thread.sleep(20);
         }
     }
+
+
+    @Test
+    public void testSendFanoutExchange() throws InterruptedException {
+        //交换机名称
+        String exchangeName = "itcast.fanout";
+        //消息
+        String message = "Hello, everyone";
+        //发送
+        rabbitTemplate.convertAndSend(exchangeName, "", message);
+    }
 }

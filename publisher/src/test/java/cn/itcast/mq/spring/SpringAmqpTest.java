@@ -52,4 +52,15 @@ public class SpringAmqpTest {
         //发送
         rabbitTemplate.convertAndSend(exchangeName, "red", message);
     }
+
+
+    @Test
+    public void testSendTopicExchange() throws InterruptedException {
+        //交换机名称
+        String exchangeName = "itcast.topic";
+        //消息
+        String message = "当996成为福报";
+        //发送
+        rabbitTemplate.convertAndSend(exchangeName, "china.news", message);
+    }
 }

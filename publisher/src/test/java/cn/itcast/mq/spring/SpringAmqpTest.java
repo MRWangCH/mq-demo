@@ -41,4 +41,15 @@ public class SpringAmqpTest {
         //发送
         rabbitTemplate.convertAndSend(exchangeName, "", message);
     }
+
+
+    @Test
+    public void testSendDirectExchange() throws InterruptedException {
+        //交换机名称
+        String exchangeName = "itcast.direct";
+        //消息
+        String message = "Hello, red";
+        //发送
+        rabbitTemplate.convertAndSend(exchangeName, "red", message);
+    }
 }
